@@ -1,0 +1,35 @@
+{
+  "name": "rtl-happy",
+  "version": "0.1.0",
+  "authors": [
+    "Yaser Khahani <YaserKH@Gmail.com>"
+  ],
+  "description": "Make RTL Support (Client-Side-Solution) for Web-Based Applications and Services",
+  "main": [
+    "dist/rtl-happy.min.js",
+    "dist/rtl-happy-userscript.js"
+  ],
+  "keywords": [
+    "RTL-Happy",
+    "RTL-Support",
+    "Persian",
+    "Arabic",
+    "Hebrew",
+    "Farsi",
+    "YKH",
+    "Phabricator",
+    "Trello"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ykh/rtl-happy",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "rtl-happy",
+  "version": "0.1.0",
+  "description": "Make RTL Support (Client-Side-Solution) for Web-Based Applications and Services",
+  "main": [
+    "dist/rtl-happy.min.js",
+    "dist/rtl-happy-userscript.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^11.0.0",
+    "gulp": "^3.9.0",
+    "gulp-add-src": "^0.2.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ykh/rtl-happy"
+  },
+  "author": "Yaser Khahani <YaserKH@Gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ykh/rtl-happy/issues"
+  },
+  "homepage": "https://github.com/ykh/rtl-happy",
+  "keywords": [
+    "RTL-Happy",
+    "RTL-Support",
+    "Persian",
+    "Arabic",
+    "Hebrew",
+    "Farsi",
+    "YKH",
+    "Phabricator",
+    "Trello"
+  ]
+}
