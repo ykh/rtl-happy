@@ -1,28 +1,21 @@
-/*!
- * RTL-Happy jQuery Based User-Script
- * It Makes RTL-Support Client-Side Solution for Web Based Services/Applications
- * https://github.com/ykh/rtl-happy
- *
- * Copyright 2015 - YaserKH.ir
- * Released under the MIT license
- * https://github.com/ykh/rtl-happy/LICENSE.md
- *
- * Date: 2015-07-18
- */
-var $ = require('../bower_components/jquery/dist/jquery.js');
+var jQuery = require('./vendor/jquery/dist/jquery.js');
 
 (function ($, document) {
     var services = [
             {
                 'name': 'Phabricator',
                 'urlMatch': [
-                    'phabricator'
+                    'phabricator',
+                    'prj.local'
                 ],
-                'targetList': 'h1, h2, h3, p ,a, ul, td',
+                'targetList': 'h1, h2, h3, p ,a, ul, td, .mlt.mlb.msr.msl',
                 'blackList': [
                     '.phui-object-item-list-view'
                 ],
-                'inputList': 'textarea, input[type=text]'
+                'inputList': 'textarea, input[type=text]',
+                'css': [
+                    'style.phab.css'
+                ]
             },
             {
                 'name': 'Trello',
@@ -31,31 +24,31 @@ var $ = require('../bower_components/jquery/dist/jquery.js');
                 ],
                 'targetList': 'h1, h2, h3, p ,a, ul, .list-header',
                 'blackList': [],
-                'inputList': 'textarea, input[type=text]'
+                'inputList': 'textarea, input[type=text]',
+                'css': [
+                    'style.trello.css'
+                ]
+            },
+            {
+                'name': 'BPMS',
+                'urlMatch': [
+                    '10.10.20.41'
+                ],
+                'targetList': 'h1, h2, h3, p ,a, ul, .list-header',
+                'blackList': [],
+                'inputList': 'textarea, input[type=text]',
+                'css' : [
+                    'style.bpms.css'
+                ],
+                'js': [
+
+                ]
             }
         ],
         settings = {
             'languages': [
                 /[\u0600-\u06FF]/, // Persian, Arabic
                 /[\u0590-\u05FF]/ // Hebrew
-            ],
-            'cssRules': [
-                {
-                    'sign': 'ykh-rtl',
-                    'css': '{direction:rtl;}'
-                },
-                {
-                    'sign': 'ykh-right',
-                    'css': '{text-align:right;}'
-                },
-                {
-                    'sign': 'ykh-ubd',
-                    'css': '{unicode-bidi:embed;}'
-                },
-                {
-                    'sign': 'ykh-pr1',
-                    'css': '{padding-right:20px;}'
-                }
             ],
             currentUrl: window.location.href,
             currentService: ''
@@ -70,7 +63,14 @@ var $ = require('../bower_components/jquery/dist/jquery.js');
 
             service.urlMatch.forEach(function (str) {
                 if (settings.currentUrl.indexOf(str) > -1) {
-                    console.log(str + ' is matched!');
+                    //console.log(str + ' is matched!');
+                    // ChromeExtension Active Icon
+                    /*chrome.runtime.sendMessage({msg: "active-icon"}, function (response) {
+                        //console.log(response.sender);
+                    });*/
+                    // Load Dynamic Resources (js, css) for This Service
+                    injectResources(service);
+                    //
                     settings.currentService = service;
                     return true;
                 }
@@ -88,17 +88,37 @@ var $ = require('../bower_components/jquery/dist/jquery.js');
     });
 
     /**
+     * Inject css/js Files to Page According to Service
+     */
+    function injectResources(service) {
+        if (!service.css.length) {
+            return;
+        }
+
+        service.css.forEach(function (file) {
+            //console.log(file);
+            /*chrome.runtime.sendMessage({'msg': "inject_file", 'file': file}, function (response) {
+                //console.log(response.sender);
+            });*/
+        });
+    }
+
+    /**
      *
      */
     function prepareRTLHappy() {
         var style;
 
-        // Inject own css rules to <head>
-        style = $('<style type=\'text/css\'>');
-        $(settings.cssRules).each(function () {
-            style.append('.' + $(this)[0].sign + $(this)[0].css);
-        });
-        $('head').append(style);
+        /*var fontface = document.createElement("style");
+        fontface.type = "text/css";
+        fontface.textContent = "@font-face {" +
+            "font-family: 'DroidNaskh';" +
+            "src: url('" + chrome.extension.getURL('/vendor/vazir-font/dist/Vazir.eot') + "'); " +
+            "src: url('" + chrome.extension.getURL('/vendor/vazir-font/dist/Vazir.eot?#iefix') + "') format('embedded-opentype')," +
+            "url('" + chrome.extension.getURL('/vendor/vazir-font/dist/Vazir.woff') + "') format('woff')," +
+            "url('" + chrome.extension.getURL('/vendor/vazir-font/dist/Vazir.woff') + "') format('woff')," +
+            "url('" + chrome.extension.getURL('/vendor/vazir-font/dist/Vazir.ttf') + "') format('truetype');}";
+        document.head.appendChild(fontface);*/
 
         //
         $(settings.currentService.targetList).each(function () {
@@ -187,4 +207,83 @@ var $ = require('../bower_components/jquery/dist/jquery.js');
 
         return false;
     }
-})($, document);
+})(jQuery, document);
+
+/**
+ * Give Phabricator Cute Features
+ **/
+(function ($, document) {
+    $(document).ready(function () {
+        // Load textarea Toolbar HTML
+        /*$.get(chrome.extension.getURL('html/textarea-toolbar.html'), function(data) {
+            $('.aphront-form-control-textarea').before($(data));
+
+            $('.ykh-phab-toolbar .ykh-icon-buttons .ykh-icon').on('click', function (e) {
+                insertIcon($(this).attr('data-ykh-icon'), $('.ykh-phab-toolbar').parent().find('textarea:first'));
+            });
+
+            $('.ykh-phab-toolbar-colors .ykh-icon').on('click', function (e) {
+                var color;
+
+                $('.ykh-phab-toolbar-colors .ykh-icon.selected').removeClass('selected');
+                $(this).addClass('selected');
+                color = $(this).data('color');
+                $('.ykh-icon-buttons .ykh-icon').removeClass('black blue orange red');
+                $('.ykh-icon-buttons .ykh-icon').addClass(color);
+            });
+        });*/
+
+        /**
+         *
+         * @param icon
+         * @param textarea
+         */
+        function insertIcon(icon, textarea) {
+            var markup,
+                color = $('.ykh-phab-toolbar-colors .ykh-icon.selected').data('color');
+
+            markup = '{icon ' + icon + ' color=' + color + '}';
+            insertAtCaret(textarea, markup);
+        }
+
+        /**
+         * @param textareaObj
+         * @param text
+         */
+        function insertAtCaret(textareaObj,text) {
+            var txtarea = textareaObj;
+            var scrollPos = txtarea.scrollTop;
+            var strPos = 0;
+            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+                "ff" : (document.selection ? "ie" : false ) );
+            var range;
+
+            if (br == "ie") {
+                txtarea.focus();
+                range = document.selection.createRange();
+                range.moveStart ('character', -txtarea.value.length);
+                strPos = range.text.length;
+            }
+            else if (br == "ff") strPos = txtarea.selectionStart;
+
+            var front = (txtarea.val()).substring(0,strPos);
+            var back = (txtarea.val()).substring(strPos,txtarea.val().length);
+            txtarea.val(front+text+back);
+            strPos = strPos + text.length;
+            if (br == "ie") {
+                txtarea.focus();
+                range = document.selection.createRange();
+                range.moveStart ('character', -txtarea.val().length);
+                range.moveStart ('character', strPos);
+                range.moveEnd ('character', 0);
+                range.select();
+            }
+            else if (br == "ff") {
+                txtarea.selectionStart = strPos;
+                txtarea.selectionEnd = strPos;
+                txtarea.focus();
+            }
+            txtarea.scrollTop = scrollPos;
+        }
+    });
+})(jQuery, document);

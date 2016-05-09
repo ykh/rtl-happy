@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "RTL Happy",
+  "description": "This extention trying to add support RTL and some cute features to popular web-based applications such as Trello and Pharbicator.",
+  "version": "0.1.10",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "rtl-happy.min.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "RTL Happy"
+  },
+  "permissions": [
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    "vendor/droidarabicnaskh-googlefont/DroidNaskh-Regular.ttf",
+    "vendor/vazir-font/dist/Vazir.eot",
+    "vendor/vazir-font/dist/Vazir.ttf",
+    "vendor/vazir-font/dist/Vazir.woff",
+
+    "html/textarea-toolbar.html",
+
+    "vendor/bootstrap/dist/css/bootstrap.min.css",
+    "vendor/bootstrap/dist/js/bootstrap.min.js"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>RTL Happy</title>
+  <meta charset="utf-8"/>
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
+  <style>
+    .container{
+      margin:15px;
+      min-width:250px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="alert" class="hide">
+    <div class="alert alert-success" role="alert">
+      Settings Has Been Saved!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Apps Activation Status</label>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="phab-active" checked>Phabricator
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="bpms-active" checked>BPMS
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="trello-active" checked>Trello
+      </label>
+    </div>
+    <button type="button" id="save-button" class="btn btn-primary">Save</button>
+  </div>
+
+</div>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
+

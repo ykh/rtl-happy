@@ -1,0 +1,116 @@
+.ykh-rtl{
+    direction:rtl;
+    font-family:"DroidNaskh", serif;
+    line-height:25px;
+}
+
+.ykh-right{
+    text-align:right;
+}
+
+.ykh-udb{
+}
+
+.ykh-pr1{
+    padding-right:20px;
+}
+
+.ykh-rtl.phui-header-view {
+    text-align:left;
+}
+.ykh-rtl.phui-header-view .phui-header-subheader {
+    direction:ltr;
+}
+
+
+/* Phabricator Styles */
+span.phui-header-header{
+    font-size:11px;
+}
+
+body.phui-theme-light a{
+    font-size:11px;
+    font-weight:normal;
+}
+
+body.phui-theme-light p{
+    font-size:12px;
+}
+/* */
+.phabricator-remarkup p .phui-font-fa,
+.phabricator-remarkup ul .phui-font-fa,
+.phabricator-remarkup table .phui-font-fa{
+    font-size:15px;
+    background:#ECECEC;
+    width:25px;
+    height:25px;
+    line-height:25px;
+    text-align:center;
+    border-radius:100%;
+    font-weight:normal;
+    margin:2px;
+}
+
+/* */
+.ykh-phab-toolbar-colors{
+    float:right;
+}
+.ykh-phab-toolbar-colors .ykh-icon{
+    transition:box-shadow 0.3s;
+}
+.ykh-phab-toolbar-colors .ykh-icon.selected{
+    box-shadow:0 0 3px #444444;
+}
+
+.ykh-phab-toolbar .ykh-icon-buttons .ykh-icon{
+    transition:background 0.2s, color 0.6s;
+}
+
+.ykh-phab-toolbar .ykh-icon.red,
+.phabricator-remarkup p .phui-font-fa.red,
+.phabricator-remarkup ul .phui-font-fa.red,
+.phabricator-remarkup table .phui-font-fa.red{
+    background:#FFDCDC;
+}
+
+.ykh-phab-toolbar .ykh-icon.blue,
+.phabricator-remarkup p .phui-font-fa.blue,
+.phabricator-remarkup ul .phui-font-fa.blue,
+.phabricator-remarkup table .phui-font-fa.blue{
+    background:#CCE6FF;
+}
+
+.ykh-phab-toolbar .ykh-icon.orange,
+.phabricator-remarkup p .phui-font-fa.orange,
+.phabricator-remarkup ul .phui-font-fa.orange,
+.phabricator-remarkup table .phui-font-fa.orange{
+    background:#FFD7B1;
+}
+
+span.phui-object-box .phui-header-tall .phui-header-header,
+span.phui-document-view .phui-header-tall .phui-header-header{
+    font-size:13px;
+}
+
+.ykh-rtl tt{
+    font-size:12px;
+}
+
+.ykh-phab-toolbar .ykh-icon{
+    background:#ECECEC;
+    font-size:15px;
+    width:25px;
+    height:25px;
+    line-height:25px;
+    text-align:center;
+    border-radius:100%;
+    font-weight:normal;
+    margin:0;
+    cursor:pointer;
+    color:#000;
+}
+
+/* Hide Toolbar in Conpherence Page */
+.conpherence-message-pane .ykh-phab-toolbar{
+    display:none;
+}

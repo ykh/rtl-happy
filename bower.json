@@ -1,14 +1,11 @@
 {
   "name": "rtl-happy",
-  "version": "0.1.0",
+  "version": "0.1.10",
   "authors": [
-    "Yaser Khahani <YaserKH@Gmail.com>"
+    "Yaser Khahani <yaserkh@gmail.com>"
   ],
   "description": "Make RTL Support (Client-Side-Solution) for Web-Based Applications and Services",
-  "main": [
-    "dist/rtl-happy.min.js",
-    "dist/rtl-happy-userscript.js"
-  ],
+  "main": [],
   "keywords": [
     "RTL-Happy",
     "RTL-Support",
@@ -30,6 +27,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4"
+    "bootstrap": "~3.3.5",
+    "vazir-font": "^2.0.0",
+    "droidarabicnaskh-googlefont": "*"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "RTL-Happy",
+  "version": "0.1.8",
+  "description": "RTL Happy",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaser Khahani <yaserkh@gmail.com>",
+  "license": "ISC"
+}
