@@ -43,6 +43,21 @@ var jQuery = require('./vendor/jquery/dist/jquery.js');
                 'js': [
 
                 ]
+            },
+            {
+                'name': 'Connect.Ray',
+                'urlMatch': [
+                    'connect.ray.com'
+                ],
+                'targetList': 'h1, h2, h3, p ,a, ul',
+                'blackList': [],
+                'inputList': 'textarea, input[type=text]',
+                'css' : [
+                    'style.connect.css'
+                ],
+                'js': [
+
+                ]
             }
         ],
         settings = {
