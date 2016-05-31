@@ -12,6 +12,7 @@
         "style.css"
       ],
       "js": [
+        "script.js",
         "rtl-happy.min.js"
       ]
     }
