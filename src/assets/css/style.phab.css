@@ -69,6 +69,7 @@ span.phui-document-view .phui-header-tall .phui-header-header{
 
 .ykh-rtl tt{
     font-size:12px;
+    unicode-bidi:plaintext;
 }
 
 .ykh-phab-toolbar .ykh-icon{
