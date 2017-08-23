@@ -1,0 +1,17 @@
+{
+    "name": "droidarabicnaskh-googlefont",
+    "license": "APACHE2",
+    "authors": [
+        "Pascal Zoghbi"
+    ],
+    "homepage": "https://fonts.google.com/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/google-fonts-bower/droidarabicnaskh-bower.git"
+    },
+    "description": "Droid Arabic Naskh font",
+    "keywords": [
+        "font",
+        "DISPLAY"
+    ]
+}

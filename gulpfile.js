@@ -32,7 +32,8 @@ gulp.task('build:rtl-happy', function () {
 gulp.task('build:useDirect', [], function () {
     var cssSrc = [
         './src/assets/css/style.css',
-        './src/assets/css/style.phab.css'
+        './src/assets/css/style.phab.css',
+        './src/assets/css/style.jira.css'
     ];
 
     return gulp.src(cssSrc)

@@ -57,6 +57,21 @@ var jQuery = require('./vendor/jquery/dist/jquery.js');
                 'js': [
 
                 ]
+            },
+            {
+                'name': 'Jira',
+                'urlMatch': [
+                    'jira.'
+                ],
+                'targetList': 'h1, h2, h3, p ,a, ul',
+                'blackList': [],
+                'inputList': 'textarea, input[type=text]',
+                'css' : [
+                    'style.jira.css'
+                ],
+                'js': [
+
+                ]
             }
         ],
         settings = {
