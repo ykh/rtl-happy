@@ -1,17 +1,19 @@
-var seletcedTabId = -1;
+let selectedTabId;
+
+selectedTabId = -1;
 
 chrome.tabs.onSelectionChanged.addListener(function (tabId, props) {
-    seletcedTabId = tabId;
+    selectedTabId = tabId;
 });
 
 chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-    seletcedTabId = tabs[0].id;
+    selectedTabId = tabs[0].id;
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    //chrome.browserAction.setBadgeText({"text": 'OK', "tabId": seletcedTabId});
+    //chrome.browserAction.setBadgeText({"text": 'OK', "tabId": selectedTabId});
 
-    if ('active-icon' === request.msg) {
+    if (request.msg === 'active_icon') {
         chrome.browserAction.setIcon({
             path: {
                 19: 'icon-active-19.png',
@@ -24,10 +26,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 
     // Inject CSS/JS Files as Requested
-    if ('inject_file' === request.msg) {
-        var file = chrome.extension.getURL(request.file);
-        console.log(file);
-        //
+    if (request.msg === 'file_injected') {
+        let file;
+
+        file = chrome.extension.getURL(request.file);
+
         chrome.tabs.insertCSS(sender.tab.id, {'file': request.file}, function () {
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);

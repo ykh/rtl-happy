@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "RTL Happy",
-  "description": "This extention trying to add support RTL and some cute features to popular web-based applications such as Trello and Pharbicator.",
+  "description": "This extension trying to add support RTL and some cute features to popular web-based applications such as Trello and Phabricator.",
   "version": "0.1.12",
   "content_scripts": [
     {
@@ -14,7 +14,8 @@
       "js": [
         "script.js",
         "rtl-happy.min.js"
-      ]
+      ],
+      "all_frames": true
     }
   ],
   "browser_action": {
@@ -34,7 +35,9 @@
     "html/textarea-toolbar.html",
 
     "vendor/bootstrap/dist/css/bootstrap.min.css",
-    "vendor/bootstrap/dist/js/bootstrap.min.js"
+    "vendor/bootstrap/dist/js/bootstrap.min.js",
+
+    "css/jira.css"
   ],
   "background": {
     "scripts": [
