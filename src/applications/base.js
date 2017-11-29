@@ -10,20 +10,26 @@ const settings = {
 };
 
 class Base {
-    constructor() {
+    constructor(app) {
         this.app = {
-            name: '',
-            css: '',
-            targetList: '',
-            blackList: '',
-            inputList: '',
+            name: app.name,
+            css: app.css,
+            targetList: app.targetList,
+            blackList: app.blackList,
+            inputList: app.inputList,
         };
 
         Object.seal(this.app);
+
+        this.injectResources();
     }
 
     rtl() {
-        throw new TypeError('This Is Abstract Class! Implement It.');
+        this.prepareRTLHappy(this.app.targetList);
+
+        setInterval(() => {
+            this.prepareRTLHappy(this.app.targetList);
+        }, 1000);
     }
 
     injectResources($parent) {

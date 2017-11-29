@@ -34,10 +34,6 @@ const config = {
 };
 
 class RTLHappy {
-    constructor() {
-
-    }
-
     detect() {
         let detectedApp;
 
